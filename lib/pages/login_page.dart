@@ -55,10 +55,10 @@ class _LoginPageState extends State<LoginPage> {
       //if(result == "user-not-found"){msg = "Usuario no registrado";}else
       if(result == "invalid-email"){msg = "El correo electronico esta mal escrito";}else
       if(result == "wrong-password"){msg = "Correo o contraseña invalida";}else
-      if(result == "network-request-failed"){msg = "!ops¡ al parecer no tienes conexión";}else
-        msg = "Bienvenido";
+      if(result == "network-request-failed"){msg = "!ops¡ al parecer no tienes conexión";}else{
+        msg = "Bienvenido";}
       _showMsg("Correo o contraeña incorrecta");
-      //Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
     }
   }
 
