@@ -52,13 +52,14 @@ class _LoginPageState extends State<LoginPage> {
     }else {
       var result = await _firebaseApi.logInUser(_email.text,_password.text);
       String msg = "";
-      //if(result == "user-not-found"){msg = "Usuario no registrado";}else
-      if(result == "invalid-email"){msg = "El correo electronico esta mal escrito";}else
-      if(result == "wrong-password"){msg = "Correo o contraseña invalida";}else
-      if(result == "network-request-failed"){msg = "!ops¡ al parecer no tienes conexión";}else{
-        msg = "Bienvenido";}
-      _showMsg("Correo o contraeña incorrecta");
+      if(result == "user-not-found"){_showMsg("Correo o contraeña incorrecta");}else
+      if(result == "invalid-email"){_showMsg("El correo electronico esta mal escrito");}else
+      if(result == "wrong-password"){_showMsg("Correo o contraseña invalida");}else
+      if(result == "network-request-failed"){_showMsg("!ops¡ al parecer no tienes conexión");}else{
+        msg = "Bienvenido";
+      //_showMsg("Correo o contraeña incorrecta");
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
+      }
     }
   }
 
